@@ -27,19 +27,7 @@ namespace Samochod
 			this.name = name;
 		}
 
-		public Car()
-		{
-			this.gear = 0;
-			this.velocity = 0;
-			this.petrolLevel = 100;
-			this.checkEngine = false;
-			this.drivingDistance = 0;
-			this.carStatus = Utils.CarStatus.engineOff;
-			this.engineDMG = 0;
-			this.name = "TEST";
-		}
-
-		public Boolean getEngineStatus()
+		public Boolean checkEngineStatus()
 		{
 			if (engineDMG > 70) {
 				this.checkEngine = true;
@@ -49,25 +37,24 @@ namespace Samochod
 		}
 
 
-		private void increateSpeed()
-		{
-			if (velocity < Utils.maxVelocity)
-			{
+		public void increateSpeed() {
+
+			if (velocity < Utils.maxVelocity && gear > 0) {
 				velocity += Utils.speedChange;
 			}
 
 			setDistance();
 		}
 
-		private void setDistance()
+		public void setDistance()
 		{
 			if (velocity != 0)
 			{
-				drivingDistance += velocity / 2;
+				drivingDistance += velocity;
 			}
 		}
 
-		private void reducingSpeed()
+		public void reducingSpeed()
 		{
 			if (velocity > 0)
 			{
@@ -86,37 +73,34 @@ namespace Samochod
 			fuelConsumption(1);
 		}
 
-		public Boolean needToChangeGear()
+		public void needToChangeGear()
 		{
-			if (velocity > 20 && gear != 1) {
-				engineDMG += Utils.engineDamage;
-				return true;
+
+			if(velocity < 5 && gear == 0) {
+				return;
+            }
+			
+			if (velocity > Utils.gearRange[0,0] && velocity < Utils.gearRange[0,1] && gear == 1) {
+				return;
 			} 
 			
-			if (velocity < 20 || velocity > 42 && gear != 2) {
-				engineDMG += Utils.engineDamage;
-				return true;
+			if (velocity > Utils.gearRange[1, 0] && velocity < Utils.gearRange[1, 1] && gear == 2) {
+				return;
 			}
 
-			if (velocity < 40 || velocity > 62 && gear != 3)
-			{
-				engineDMG += Utils.engineDamage;
-				return true;
+			if (velocity > Utils.gearRange[2, 0] && velocity < Utils.gearRange[2, 1] && gear == 3) {
+				return;
 			}
 
-			if (velocity < 60 || velocity > 82 && gear != 4)
-			{
-				engineDMG += Utils.engineDamage;
-				return true;
+			if (velocity > Utils.gearRange[3, 0] && velocity < Utils.gearRange[3, 1] && gear == 4) {
+				return;
 			}
 
-			if (velocity < 80 || velocity > 100 && gear != 5)
-			{
-				engineDMG += Utils.engineDamage;
-				return true;
+			if (velocity > Utils.gearRange[4, 0] && velocity <= Utils.gearRange[4, 1] && gear == 5) {
+				return;
 			}
 
-			return false;
+			engineDMG += Utils.engineDamage;
 		}
 
 		public Enum getStatus()

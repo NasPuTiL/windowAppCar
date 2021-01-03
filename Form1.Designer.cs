@@ -43,6 +43,12 @@ namespace windowCar
             this.drivingDistanceLbl = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.constSpeedBtn = new System.Windows.Forms.Button();
+            this.upGearBtn = new System.Windows.Forms.Button();
+            this.downGearBtn = new System.Windows.Forms.Button();
+            this.gearLbl = new System.Windows.Forms.Label();
+            this.warnFuelLvlBtn = new System.Windows.Forms.Label();
+            this.warnEngineBtn = new System.Windows.Forms.Label();
+            this.engineSpeedBtn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // engineOnBtn
@@ -72,13 +78,13 @@ namespace windowCar
             this.carStopBtn.Name = "carStopBtn";
             this.carStopBtn.Size = new System.Drawing.Size(100, 75);
             this.carStopBtn.TabIndex = 2;
-            this.carStopBtn.Text = "Stop Car";
+            this.carStopBtn.Text = "Neutral Gear";
             this.carStopBtn.UseVisualStyleBackColor = true;
             this.carStopBtn.Click += new System.EventHandler(this.carStopBtn_Click);
             // 
             // accelerationBtn
             // 
-            this.accelerationBtn.Location = new System.Drawing.Point(330, 190);
+            this.accelerationBtn.Location = new System.Drawing.Point(330, 109);
             this.accelerationBtn.Name = "accelerationBtn";
             this.accelerationBtn.Size = new System.Drawing.Size(100, 75);
             this.accelerationBtn.TabIndex = 3;
@@ -88,7 +94,7 @@ namespace windowCar
             // 
             // releasingBtn
             // 
-            this.releasingBtn.Location = new System.Drawing.Point(436, 190);
+            this.releasingBtn.Location = new System.Drawing.Point(330, 271);
             this.releasingBtn.Name = "releasingBtn";
             this.releasingBtn.Size = new System.Drawing.Size(100, 75);
             this.releasingBtn.TabIndex = 4;
@@ -148,7 +154,7 @@ namespace windowCar
             this.drivingDistanceLbl.Name = "drivingDistanceLbl";
             this.drivingDistanceLbl.Size = new System.Drawing.Size(35, 13);
             this.drivingDistanceLbl.TabIndex = 10;
-            this.drivingDistanceLbl.Text = "label5";
+            this.drivingDistanceLbl.Text = "label6";
             // 
             // timer1
             // 
@@ -157,7 +163,7 @@ namespace windowCar
             // 
             // constSpeedBtn
             // 
-            this.constSpeedBtn.Location = new System.Drawing.Point(542, 190);
+            this.constSpeedBtn.Location = new System.Drawing.Point(330, 190);
             this.constSpeedBtn.Name = "constSpeedBtn";
             this.constSpeedBtn.Size = new System.Drawing.Size(100, 75);
             this.constSpeedBtn.TabIndex = 11;
@@ -165,11 +171,73 @@ namespace windowCar
             this.constSpeedBtn.UseVisualStyleBackColor = true;
             this.constSpeedBtn.Click += new System.EventHandler(this.constSpeedBtn_Click);
             // 
+            // upGearBtn
+            // 
+            this.upGearBtn.Location = new System.Drawing.Point(224, 109);
+            this.upGearBtn.Name = "upGearBtn";
+            this.upGearBtn.Size = new System.Drawing.Size(100, 75);
+            this.upGearBtn.TabIndex = 12;
+            this.upGearBtn.Text = "Up";
+            this.upGearBtn.UseVisualStyleBackColor = true;
+            this.upGearBtn.Click += new System.EventHandler(this.upGearBtn_Click);
+            // 
+            // downGearBtn
+            // 
+            this.downGearBtn.Location = new System.Drawing.Point(224, 271);
+            this.downGearBtn.Name = "downGearBtn";
+            this.downGearBtn.Size = new System.Drawing.Size(100, 75);
+            this.downGearBtn.TabIndex = 13;
+            this.downGearBtn.Text = "Down";
+            this.downGearBtn.UseVisualStyleBackColor = true;
+            this.downGearBtn.Click += new System.EventHandler(this.downGearBtn_Click);
+            // 
+            // gearLbl
+            // 
+            this.gearLbl.AutoSize = true;
+            this.gearLbl.Location = new System.Drawing.Point(115, 39);
+            this.gearLbl.Name = "gearLbl";
+            this.gearLbl.Size = new System.Drawing.Size(35, 13);
+            this.gearLbl.TabIndex = 14;
+            this.gearLbl.Text = "label7";
+            // 
+            // warnFuelLvlBtn
+            // 
+            this.warnFuelLvlBtn.AutoSize = true;
+            this.warnFuelLvlBtn.Location = new System.Drawing.Point(221, 9);
+            this.warnFuelLvlBtn.Name = "warnFuelLvlBtn";
+            this.warnFuelLvlBtn.Size = new System.Drawing.Size(35, 13);
+            this.warnFuelLvlBtn.TabIndex = 15;
+            this.warnFuelLvlBtn.Text = "label7";
+            // 
+            // warnEngineBtn
+            // 
+            this.warnEngineBtn.AutoSize = true;
+            this.warnEngineBtn.Location = new System.Drawing.Point(221, 39);
+            this.warnEngineBtn.Name = "warnEngineBtn";
+            this.warnEngineBtn.Size = new System.Drawing.Size(35, 13);
+            this.warnEngineBtn.TabIndex = 16;
+            this.warnEngineBtn.Text = "label7";
+            // 
+            // engineSpeedBtn
+            // 
+            this.engineSpeedBtn.AutoSize = true;
+            this.engineSpeedBtn.Location = new System.Drawing.Point(115, 66);
+            this.engineSpeedBtn.Name = "engineSpeedBtn";
+            this.engineSpeedBtn.Size = new System.Drawing.Size(35, 13);
+            this.engineSpeedBtn.TabIndex = 17;
+            this.engineSpeedBtn.Text = "label7";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 300);
+            this.ClientSize = new System.Drawing.Size(469, 386);
+            this.Controls.Add(this.engineSpeedBtn);
+            this.Controls.Add(this.warnEngineBtn);
+            this.Controls.Add(this.warnFuelLvlBtn);
+            this.Controls.Add(this.gearLbl);
+            this.Controls.Add(this.downGearBtn);
+            this.Controls.Add(this.upGearBtn);
             this.Controls.Add(this.constSpeedBtn);
             this.Controls.Add(this.drivingDistanceLbl);
             this.Controls.Add(this.engineDMGLbl);
@@ -209,6 +277,12 @@ namespace windowCar
         private System.Windows.Forms.Label drivingDistanceLbl;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button constSpeedBtn;
+        private System.Windows.Forms.Button upGearBtn;
+        private System.Windows.Forms.Button downGearBtn;
+        private System.Windows.Forms.Label gearLbl;
+        private System.Windows.Forms.Label warnFuelLvlBtn;
+        private System.Windows.Forms.Label warnEngineBtn;
+        private System.Windows.Forms.Label engineSpeedBtn;
     }
 }
 
